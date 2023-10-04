@@ -5,25 +5,18 @@ type AccordionPropsType = {
     collapsed?: boolean
 }
 
-//получаем в пропсы AccordionPropsType
 export function Accordion(props: AccordionPropsType) {
     console.log("Accordion rendering")
-    if (props.collapsed === true ) {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-            </div>
-        );
-    } else {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-                <AccordionBody />
-            </div>
-        );
-    }
-
+    return (
+        <div>
+            <AccordionTitle title={props.titleValue}/>
+            { !props.collapsed && <AccordionBody/>}
+            {/*// !props.collapsed  если НЕ свернут то покажи меню*/}
+            {/*{ props.collapsed === false && <AccordionBody/>} //если collapsed НЕ свернут то покажи меню*/}
+        </div>
+    );
 }
+
 
 type AccordionTitlePropsType = {
     title: string
@@ -40,9 +33,9 @@ function AccordionBody() {
     console.log("AccordionBody rendering")
     return (
         <ul> ==Menu==
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li> -- 1 -- </li>
+            <li> -- 2 --</li>
+            <li> -- 3 --</li>
         </ul>
     );
 }
