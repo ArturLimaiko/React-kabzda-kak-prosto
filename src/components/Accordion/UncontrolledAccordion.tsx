@@ -10,16 +10,18 @@ type UncontrolledAccordionPropsType = {
 //пропсы получили для того что бы вернуть соответстующую JSX разметку
 export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 
+    //collapsed переменная ;
+    //setCollapsed функция которую можем вызвать и передать значение стейта
+    //вызываем useState и со старта задаем значение collapsed - false
     let [collapsed, setCollapsed] = useState(false)
-
-    const toggleCollapsed = () => {
-        setCollapsed(!collapsed)
-    }
 
     return (
         <div>
             <AccordionTitle title={props.titleValue}/>
-            <button onClick={toggleCollapsed}> TOGGLE</button>
+            {/* во время клика по кнопке вызови функцию setCollapsed
+             и передадим в нее значение противоположное !collapsed
+             и далее реакт перерисовывает разметку основываясь на переданном значении*/}
+            <button onClick={()=> {setCollapsed(!collapsed)}}> TOGGLE</button>
             { !collapsed && <AccordionBody/>}
         </div>
     );

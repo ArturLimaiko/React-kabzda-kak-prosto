@@ -11,21 +11,28 @@ function App(props: any) {
     //обязана вернуть JSX
     console.log("App rendering")
 
+
+
     return (
-        <div className="App">
+        <div className={"App"}>
             <PageTitle title={"This is App component"}/>
             <PageTitle title={"Users page"}/>
 
             Article 1
             <img src={"https://cdn.iconscout.com/icon/free/png-256/free-webstorm-3629742-3030793.png"}/>
             <Rating value={0}/>
-            <Accordion titleValue={"This is first title"}/>
-            <Accordion titleValue={"This is second title"}/>
 
+
+            <span> Контролируемый Accordion</span>
+            <Accordion titleValue={"This is first title"} collapsed={false}/>
+            <Accordion titleValue={"This is second title"} collapsed={true}/>
+
+
+            <span> Неконтролируемый Accordion</span>
             <UncontrolledAccordion titleValue={"This is first title"}/>
             <UncontrolledAccordion titleValue={"This is second title"}/>
 
-            <UncontrolledRating value={2}/>
+            <UncontrolledRating/>
 
             Article 2
             <Rating value={0}/>
