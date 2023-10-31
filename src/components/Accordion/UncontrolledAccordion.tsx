@@ -17,11 +17,13 @@ export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 
     return (
         <div>
-            <AccordionTitle title={props.titleValue}/>
+            <AccordionTitle title={props.titleValue} onClick={ ()=> {setCollapsed (!collapsed)}}/>
             {/* во время клика по кнопке вызови функцию setCollapsed
              и передадим в нее значение противоположное !collapsed
              и далее реакт перерисовывает разметку основываясь на переданном значении*/}
-            <button onClick={()=> {setCollapsed(!collapsed)}}> TOGGLE</button>
+
+            {/*Зарефакторил кнопку*/}
+            {/*<button onClick={()=> {setCollapsed(!collapsed)}}> TOGGLE</button>*/}
             { !collapsed && <AccordionBody/>}
         </div>
     );
@@ -30,12 +32,13 @@ export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
 
 type AccordionTitlePropsType = {
     title: string
+    onClick : () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log("AccordionTitle rendering")
     return (
-        <h3>-- {props.title} --</h3>
+        <h3 onClick={()=> { props.onClick() }}>-- {props.title} --</h3>
     );
 }
 
