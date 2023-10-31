@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from './components/Accordion/Accordion';
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from './components/Accordion/UncontrolledAccordion';
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
@@ -12,6 +12,8 @@ function App(props: any) {
     console.log("App rendering")
 
 
+    //храним стейт Rating тут
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(2);
 
     return (
         <div className={"App"}>
@@ -20,7 +22,7 @@ function App(props: any) {
 
             Article 1
             <img src={"https://cdn.iconscout.com/icon/free/png-256/free-webstorm-3629742-3030793.png"}/>
-            <Rating value={0}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
 
 
             <span> Контролируемый Accordion</span>
@@ -35,12 +37,12 @@ function App(props: any) {
             <UncontrolledRating/>
 
             Article 2
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
+            {/*<Rating value={0}/>*/}
+            {/*<Rating value={1}/>*/}
+            {/*<Rating value={2}/>*/}
+            {/*<Rating value={3}/>*/}
+            {/*<Rating value={4}/>*/}
+            {/*<Rating value={5}/>*/}
 
             <OnOff/>
             <OnOff/>

@@ -12,27 +12,24 @@ export function UncontrolledRating() {
         <div>
             {/*rating у каждой звезды свой и мы храним его в локальном стейте
             при клике на кнопку запустится наша функция setRating() и передаем значение 1 и тд*/}
-            <Star selected={rating > 0} setRating={setRating} rating={1}/>
-            <Star selected={rating > 1} setRating={setRating} rating={2}/>
-            <Star selected={rating > 2} setRating={setRating} rating={3}/>
-            <Star selected={rating > 3} setRating={setRating} rating={4}/>
-            <Star selected={rating > 4} setRating={setRating} rating={5}/>
+            <Star selected={rating > 0} setRating={()=> { setRating(1)}} />
+            <Star selected={rating > 1} setRating={()=> { setRating(2)}} />
+            <Star selected={rating > 2} setRating={()=> { setRating(3)}} />
+            <Star selected={rating > 3} setRating={()=> { setRating(4)}} />
+            <Star selected={rating > 4} setRating={()=> { setRating(5)}} />
         </div>
     )
 }
 
 type StarPropsType = {
     selected: boolean
-    rating: 1 | 2 | 3 | 4 | 5
-    setRating: (rating: 1 | 2 | 3 | 4 | 5) => void
+    setRating: () => void
 }
 
 function Star(props: StarPropsType) {
     // return props.selected ? <span><b>  -- Star --  </b></span> : <span>  -- Star --  </span>
     // ниже еще мощнее зарефакторил
-    return <span onClick={() => {
-        props.setRating(props.rating)
-    }}>
+    return <span onClick={() => {props.setRating()}}>
             {props.selected ? <b> -- Star -- </b> : ' -- Star -- '}
             </span>
 }
