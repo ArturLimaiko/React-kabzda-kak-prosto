@@ -14,6 +14,9 @@ function App(props: any) {
 
     //храним стейт Rating тут
     let [ratingValue, setRatingValue] = useState<RatingValueType>(2);
+    //храним стейт Accordion тут
+    let [accordionCollapsed, setAccordionCollapsed] = useState(false);
+
 
     return (
         <div className={"App"}>
@@ -26,8 +29,8 @@ function App(props: any) {
 
 
             <span> Контролируемый Accordion</span>
-            <Accordion titleValue={"This is first title"} collapsed={false}/>
-            <Accordion titleValue={"This is second title"} collapsed={true}/>
+            <Accordion titleValue={"This is first title"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+            {/*<Accordion titleValue={"This is second title"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>*/}
 
 
             <span> Неконтролируемый Accordion</span>
