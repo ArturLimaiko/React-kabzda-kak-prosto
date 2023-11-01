@@ -4,7 +4,7 @@ import {Accordion} from './components/Accordion/Accordion';
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from './components/Accordion/UncontrolledAccordion';
-import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
+
 
 function App(props: any) {
     //  что то полезное делает
@@ -12,11 +12,13 @@ function App(props: any) {
     console.log("App rendering")
 
 
+    //ВСЕ СТЕЙТЫ ТУТ =>
     //храним стейт Rating тут
     let [ratingValue, setRatingValue] = useState<RatingValueType>(2);
     //храним стейт Accordion тут
-    let [accordionCollapsed, setAccordionCollapsed] = useState(false);
-
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
+    //храним стейт Accordion тут
+    // let [uncontrolledOnOff, setUncontrolledOnOff] = useState(false);
 
     return (
         <div className={"App"}>
@@ -29,15 +31,13 @@ function App(props: any) {
 
 
             <span> Контролируемый Accordion</span>
-            <Accordion titleValue={"This is first title"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+            <Accordion titleValue={"This is first title"}  collapsed={accordionCollapsed} onClick={ () => setAccordionCollapsed(!accordionCollapsed)}/>
             {/*<Accordion titleValue={"This is second title"} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>*/}
 
 
             <span> Неконтролируемый Accordion</span>
             <UncontrolledAccordion titleValue={"This is first title"}/>
             <UncontrolledAccordion titleValue={"This is second title"}/>
-
-            <UncontrolledRating/>
 
             Article 2
             {/*<Rating value={0}/>*/}
@@ -47,8 +47,13 @@ function App(props: any) {
             {/*<Rating value={4}/>*/}
             {/*<Rating value={5}/>*/}
 
+            <span> <b>Контролируемый OnOff</b></span>
             <OnOff/>
             <OnOff/>
+
+            {/*<span> <b>Неконтролируемый OnOff</b></span>*/}
+            {/*<OnOff onClick={setUncontrolledOnOff} value={uncontrolledOnOff}/>*/}
+            {/*<OnOff onClick={setUncontrolledOnOff} value={uncontrolledOnOff}/>*/}
         </div>
     );
 }
