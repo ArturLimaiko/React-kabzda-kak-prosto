@@ -4,7 +4,6 @@ type UncontrolledAccordionPropsType = {
     titleValue: string
 }
 
-
 //в компонент куда мы передаем пропсы ВСЕГДА ОПИСЫВАЕМ ТИП этих пропсов- в нашем случае props: AccordionPropsType
 //пропсы получили для того что бы вернуть соответстующую JSX разметку
 export function UncontrolledAccordion(props: UncontrolledAccordionPropsType) {
