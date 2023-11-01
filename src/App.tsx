@@ -4,6 +4,7 @@ import {Accordion} from './components/Accordion/Accordion';
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from './components/Accordion/UncontrolledAccordion';
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 
 function App(props: any) {
@@ -18,7 +19,7 @@ function App(props: any) {
     //храним стейт Accordion тут
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
     //храним стейт Accordion тут
-    // let [uncontrolledOnOff, setUncontrolledOnOff] = useState(false);
+    let [switchOn, setSwitchOn] = useState<boolean>(false);
 
     return (
         <div className={"App"}>
@@ -47,13 +48,11 @@ function App(props: any) {
             {/*<Rating value={4}/>*/}
             {/*<Rating value={5}/>*/}
 
-            <span> <b>Контролируемый OnOff</b></span>
-            <OnOff/>
-            <OnOff/>
+            {/*<span> <b>Контролируемый OnOff</b></span>*/}
+            {/*<OnOff on={switchOn} onClick={setSwitchOn}/>*/}
 
             {/*<span> <b>Неконтролируемый OnOff</b></span>*/}
-            {/*<OnOff onClick={setUncontrolledOnOff} value={uncontrolledOnOff}/>*/}
-            {/*<OnOff onClick={setUncontrolledOnOff} value={uncontrolledOnOff}/>*/}
+            <UncontrolledOnOff onClick={setSwitchOn} /> {switchOn.toString()}
         </div>
     );
 }
